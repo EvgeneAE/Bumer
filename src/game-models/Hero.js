@@ -20,7 +20,7 @@ class Hero {
     // Атакуем.
     this.boomerang.fly();
   }
-
+  ///
   die() {
     this.skin = '💀';
     console.log('YOU ARE DEAD!💀');
