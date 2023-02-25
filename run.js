@@ -2,11 +2,13 @@
 // Запускает игру.
 const Game = require('./src/Game');
 
-// Инициализация игры с настройками.
 const game = new Game({
-  trackLength: 30,
+  trackLength: 50,
+  name: process.argv[2],
 });
 
-// Запуск игры.
 game.play();
-// das
+
+// Введите имя игрока
+
+// Запуск игры

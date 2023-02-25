@@ -4,12 +4,14 @@
   "description": "Настало время разрабатывать лучшие в мире игры!",
   "main": "run.js",
   "dependencies": {
+    "enquirer": "^2.3.6",
     "find-exec": "^1.0.2",
     "keypress": "^0.2.1",
-    "pg": "^8.7.3",
+    "pg": "^8.9.0",
     "pg-hstore": "^2.3.4",
     "play-sound": "^1.1.5",
-    "sequelize": "^6.21.0"
+    "sequelize": "^6.29.0",
+    "sequelize-cli": "^6.6.0"
   },
   "devDependencies": {
     "eslint": "^8.18.0",
@@ -17,6 +19,7 @@
     "eslint-plugin-import": "^2.26.0"
   },
   "scripts": {
+    "start": "node run.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
