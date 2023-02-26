@@ -28,6 +28,7 @@ function runInteractiveConsole(hero, track) {
     }
   });
   process.stdin.setRawMode(true);
+  process.stdin.resume();
 }
 
 module.exports = runInteractiveConsole;

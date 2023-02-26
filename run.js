@@ -2,12 +2,21 @@
 // Запускает игру.
 const Game = require('./src/Game');
 
-const game = new Game({
-  trackLength: 50,
-  name: process.argv[2],
-});
+// const game = new Game({
+//   trackLength: 50,
+//   name: ,
+// });
 
-game.play();
+async function foo() {
+  await Game.rules();
+  const userName = await Game.whoIsPlayer();
+  const game = new Game({
+    trackLength: 50,
+    name: userName,
+  });
+  await game.play();
+}
+foo();
 
 // Введите имя игрока
 

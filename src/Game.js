@@ -6,6 +6,7 @@ const View = require('./View');
 const Score = require('./Score');
 const runInteractiveConsole = require('./keyboard');
 const Situation = require('./game-models/Situation');
+const { prompt } = require('enquirer');
 
 // Основной класс игры.
 // Тут будут все настройки, проверки, запуск.
@@ -21,6 +22,32 @@ class Game {
     this.track = [];
     this.regenerateTrack(this.hero.vertical);
     this.name = name;
+  }
+
+  static async rules() {
+    await prompt({
+      type: 'input',
+      name: 'name',
+      message: `Привет маленький любитель поиграть в консоли.
+  Перед тобой эпик-гейм, в которой у тебя лишь одна задача - мочить все, что движется. 
+  Управление: 
+    'd' - вперед;
+    'a' - назад; 
+    'w' - вверх; 
+    's' - вниз; 
+    'o' или 'p' - мочи бумерангом;
+  P.S: Набери 1000 очков и открой пасхалочку на фильм.
+  Для продолжения жми Enter`,
+    });
+  }
+
+  static async whoIsPlayer() {
+    const userName = await prompt({
+      type: 'input',
+      name: 'name',
+      message: 'Обзови себя:',
+    });
+    return userName;
   }
 
   // Описание обновления игрового поля - для создания эффекта движения персонажа и врагов
