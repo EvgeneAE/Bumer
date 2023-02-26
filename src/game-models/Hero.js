@@ -3,7 +3,7 @@
 class Hero {
   constructor({ position }) {
     this.skin = '🤠'; // можете использовать любые emoji '💃'
-    this.position = position;
+    this.position = position ?? 0;
   }
 
   moveLeft() {
@@ -20,7 +20,7 @@ class Hero {
     // Атакуем.
     this.boomerang.fly();
   }
-
+  ///
   die() {
     this.skin = '💀';
     console.log('YOU ARE DEAD!💀');
