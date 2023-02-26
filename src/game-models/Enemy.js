@@ -8,7 +8,7 @@ class Enemy {
   }
 
   generateSkin() {
-    const skins = ['💩', '🏎️', '🛢️', '🦄', '🦖', '🦫', '🪃', '🧜🏾‍♂️', '🚬'];
+    const skins = ['💩', '🏎️', '🧜🏾‍♂️', '🚬', '🛢️', '🦄', '🦖', '🦫', '🪃'];
     this.skin = skins[Math.floor(Math.random() * skins.length)];
   }
 
@@ -18,36 +18,8 @@ class Enemy {
   }
 
   die() {
-    this.horizontal = -1;
+    this.horizontal = -5;
   }
 }
 
 module.exports = Enemy;
-
-// // Враг.
-
-// class Enemy {
-//   constructor() {
-//     this.generateSkin();
-//     this.horizon = this.trackLength; //50
-//     this.vertical = Math.floor(Math.random() * 4);
-//   }
-
-//   generateSkin() {
-//     // Найти скины по тематике игры
-//     const skins = ['👾', '💀', '👾', '💀'];
-//     this.skin = skins[Math.floor(Math.random() * skins.length)];
-//   }
-
-//   moveLeft() {
-//     // Идём влево.
-//     this.horizon -= 1;
-//   }
-
-//   die() {
-//     this.horizon = -10;
-//     this.skin = '💀';
-//   }
-// }
-
-// module.exports = Enemy;

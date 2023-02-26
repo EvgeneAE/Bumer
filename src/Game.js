@@ -121,24 +121,42 @@ class Game {
   }
 
   play() {
+    // Запуск функции из keypress для управления героем и бумерангом
     runInteractiveConsole(this.hero, this.track);
+    // Проверка текущего состояния элементов игры, обновление и отрисовка
+    // игрового поля каждые 10мс
     setInterval(() => {
-      // Let's play!
       this.check();
       this.regenerateTrack(this.hero.vertical);
       this.view.render(this.track, this.score.scoreNumber, this.score.name);
-    }, 35);
+    }, 10);
 
+    // Задание скорости передвижения врагов в зависимости от количества набранных очков
+    // и активация финалочки при достижении 1000 очков
     const enemyMove = setInterval(() => {
-      if (this.score.scoreNumber >= 1000) {
+      if (this.score.scoreNumber >= 300 && this.score.scoreNumber < 700) {
         clearInterval(enemyMove);
-        this.enemy.skin = '';
-        this.situation.horizontal = 50;
-        this.situation.moveLeft();
+        const enemyMove2 = setInterval(() => {
+          if (this.score.scoreNumber >= 700 && this.score.scoreNumber < 1000) {
+            clearInterval(enemyMove2);
+            const enemyMove3 = setInterval(() => {
+              if (this.score.scoreNumber >= 1000) {
+                clearInterval(enemyMove3);
+                this.enemy.skin = '';
+                this.situation.horizontal = 50;
+                this.situation.moveLeft();
+              }
+              this.enemy.moveLeft();
+            }, 15);
+          }
+          this.enemy.moveLeft();
+        }, 35);
       }
       this.enemy.moveLeft();
-    }, 70);
+    }, 50);
   }
+  // CКОРОСТЬ ПЕРЕДВИЖЕНИЯ ВРАГОВ ОБЯЗАТЕЛЬНО МЕНЬШЕ СКОРОСТИ (ВРЕМЕНИ)
+  // ОБНОВЛЕНИЯ ИГРОВОГО ПОЛЯ
 }
 
 module.exports = Game;
