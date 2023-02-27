@@ -3,17 +3,18 @@
 // Главное не используй всё вместе!
 
 const keypress = require('keypress');
+const Hero = require('./game-models/Hero');
 
 // Управление.
 // Настроим соответствия нажатий на клавиши и действий в игре.
 
 const keyboard = {
-  q: () => console.log('q'),
-  w: () => console.log('w'),
-  e: () => console.log('e'),
-  r: () => console.log('r'),
-  t: () => console.log('t'),
-  y: () => console.log('y'),
+  a: () => hero.moveLeft(),
+  d: () => hero.moveRight(),
+  l: () => hero.attack(hero),
+  s: () => hero.moveDown(track),
+  w: () => hero.moveUp(track),
+  // y: () => console.log('y'),
 };
 
 // Какая-то функция.
